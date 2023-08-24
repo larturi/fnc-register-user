@@ -8,6 +8,7 @@ import (
 
 	events "github.com/aws/aws-lambda-go/events"
 	lambda "github.com/aws/aws-lambda-go/lambda"
+
 	"github.com/larturi/golang-fnc-register-user/awsgo"
 	"github.com/larturi/golang-fnc-register-user/bd"
 	"github.com/larturi/golang-fnc-register-user/models"
@@ -47,7 +48,9 @@ func EjecutoLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 		return event, err
 	}
 
-	return event, nil
+	err = bd.SignUp(datos)
+
+	return event, err
 }
 
 func ValidoParametros() bool {
