@@ -9,4 +9,5 @@ go build main.go
 rm main.zip
 zip main.zip main
 
+# chmod +x deploy.sh
 # ./deploy.sh
