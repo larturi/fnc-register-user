@@ -4,10 +4,11 @@ git push
 
 set GOOS=linux
 set GOARCH=amd64
+set CGO_ENABLED=0
 
-go build -o bootstrap -tags lambda.norpc main.go
-rm bootstrap.zip
-zip bootstrap.zip bootstrap
+go build -o main main.go
+rm main.zip
+zip main.zip main
 
 # chmod +x deploy.sh
 # ./deploy.sh
