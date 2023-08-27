@@ -19,7 +19,7 @@ func SignUp(signUp models.SignUp) error {
 
 	defer Db.Close()
 
-	sql := "INSERT INTO users (User_Email, User_UUID, User_DateAdd) VALUES ('" + signUp.UserEmail + "', '" + signUp.UserUUID + "', '" + tools.FechaMySQL() + ")"
+	sql := "INSERT INTO users (User_Email, User_UUID, User_DateAdd) VALUES ('" + signUp.UserEmail + "', '" + signUp.UserUUID + "', '" + tools.FechaMySQL() + "')"
 	fmt.Println(sql)
 
 	_, err = Db.Exec(sql)
