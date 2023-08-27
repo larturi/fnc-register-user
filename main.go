@@ -14,7 +14,7 @@ import (
 	"github.com/larturi/golang-fnc-register-user/models"
 )
 
-func main() {
+func Handler() {
 	lambda.Start(EjecutoLambda)
 }
 
