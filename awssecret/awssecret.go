@@ -28,7 +28,7 @@ func GetSecret(nombreSecret string) (models.SecretRDSJson, error) {
 	json.Unmarshal([]byte(*clave.SecretString), &datosSecret)
 	fmt.Println("> Lectura Secret OK ", nombreSecret)
 
-	fmt.Println("> datosSecret: ", datosSecret)
+	// fmt.Println("> datosSecret: ", datosSecret)
 
 	return datosSecret, nil
 }
