@@ -2,17 +2,8 @@ git add .
 git commit -m "Commit"
 git push
 
-set GOOS=linux
-set GOARCH=amd64
-set CGO_ENABLED=0
-
-
-go build -o Handler main.go
-
-
-
-rm Handler.zip
-zip Handler.zip Handler
+GOOS=linux GOARCH=amd64 go build -o bootstrap main.go
+zip lambda-handler.zip bootstrap  
 
 # chmod +x deploy.sh
 # ./deploy.sh

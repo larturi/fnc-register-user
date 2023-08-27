@@ -1,24 +1,23 @@
 package main
 
 import (
-	"context"
 	"errors"
 	"fmt"
 	"os"
 
-	events "github.com/aws/aws-lambda-go/events"
-	lambda "github.com/aws/aws-lambda-go/lambda"
-
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/larturi/golang-fnc-register-user/awsgo"
 	"github.com/larturi/golang-fnc-register-user/bd"
 	"github.com/larturi/golang-fnc-register-user/models"
 )
 
 func main() {
-	lambda.Start(EjecutoLambda)
+	// Make the handler available for Remote Procedure Call by AWS Lambda
+	lambda.Start(HandleRequest)
 }
 
-func EjecutoLambda(ctx context.Context, event events.CognitoEventUserPoolsPostConfirmation) (events.CognitoEventUserPoolsPostConfirmation, error) {
+func HandleRequest(event events.CognitoEventUserPoolsPostConfirmation) (events.CognitoEventUserPoolsPostConfirmation, error) {
 	awsgo.InitAWS()
 
 	if !ValidoParametros() {
