@@ -5,9 +5,9 @@ git push
 set GOOS=linux
 set GOARCH=amd64
 
-go build -tags lambda.norpc -o main.go
-rm main.zip
-zip main.zip main
+go build -o bootstrap -tags lambda.norpc main.go
+rm bootstrap.zip
+zip bootstrap.zip bootstrap
 
 # chmod +x deploy.sh
 # ./deploy.sh
