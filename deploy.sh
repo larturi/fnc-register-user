@@ -6,7 +6,10 @@ set GOOS=linux
 set GOARCH=amd64
 set CGO_ENABLED=0
 
-go build -o Handler main.go
+
+go build -o .\Handler .\main.go
+
+
 # rm Handler.zip
 # zip Handler.zip Handler
 
