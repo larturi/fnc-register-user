@@ -27,5 +27,12 @@ func GetSecret(nombreSecret string) (models.SecretRDSJson, error) {
 
 	json.Unmarshal([]byte(*clave.SecretString), &datosSecret)
 	fmt.Println("> Lectura Secret OK ", nombreSecret)
+
+	fmt.Println("> dbUser: ", datosSecret.Username)
+	fmt.Println("> authToken: ", datosSecret.Password)
+	fmt.Println("> dbEndpoint: ", datosSecret.Host)
+	fmt.Println("> dbPort: ", datosSecret.Port)
+	fmt.Println("> dbClusterIdentifier: ", datosSecret.DbClusterIdentifier)
+
 	return datosSecret, nil
 }
